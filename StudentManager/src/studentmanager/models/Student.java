@@ -115,6 +115,15 @@ public class Student {
     }
     
     /**
+     * Initializes an empty student - only for internal usage
+     */
+    protected Student()
+    {
+        /* Creates the Array List */
+        _grades = new ArrayList<>();
+    }
+    
+    /**
      * Initializes a new instance of a Student
      * @param studentID         The Student ID
      * @param firstName         The Student's First Name
@@ -152,5 +161,59 @@ public class Student {
                                          this.getLastName(),
                                          this.getAge(),
                                          this.getGrades().toString()));
+    }
+    
+    /**
+     * Creates a Student based on string parameters
+     * @param studentString A string containing the Student Information
+     * @return 
+     */
+    public static Student createFromString(String studentString) 
+    {
+        /* New Student Variable */
+        Student student = new Student();
+        
+        /* Split the input string */
+        String[] studentStringArray = studentString.split(",");
+        
+        /* Validate number of elements */
+        if (studentStringArray.length < 6) {
+            System.out.println(String.format("The input string of '%s' is not valid.", studentString));
+            return null;
+        }
+
+        /* Validate Fields */
+        try
+        {
+            /* Student ID */
+            student.setStudentID(studentStringArray[0]);
+            
+            /* First Name */
+            student.setFirstName(studentStringArray[1]);
+            
+            /* Last Name */
+            student.setLastName(studentStringArray[2]);
+            
+            /* Email Address */
+            student.setEmailAddress(studentStringArray[3]);
+            
+            /* Age */
+            student.setAge(Integer.parseInt(studentStringArray[4].trim()));
+            
+            /* Grades */
+            if (studentStringArray.length > 6)
+            {
+                for (int i = 5; i < studentStringArray.length; i++)
+                    student.getGrades().add(Integer.parseInt(studentStringArray[i].trim()));
+            }
+ 
+            /* Returns the Student just added */
+            return student;
+        }
+        catch (Exception e)
+        {
+            System.out.println(String.format("The input string of '%s' is not valid. Error: %s", studentString, e.getStackTrace().toString()));
+            return null;
+        }
     }
 }

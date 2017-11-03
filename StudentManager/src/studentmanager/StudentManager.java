@@ -18,13 +18,24 @@ public class StudentManager {
      */
     public static void main(String[] args) {
         
-        /* Create Students on the List */
-        Roster.add(new Student("1", "John", "Smith", "John1989@gmail.com", 20, 88, 79, 59));
-        Roster.add(new Student("2", "Suzan", "Erickson", "Erickson_1990@gmailcom", 19, 91, 72, 85));
-        Roster.add(new Student("3", "Jack", "Napoli", "The_lawyer99yahoo.com", 19, 85, 84, 87));
-        Roster.add(new Student("4", "Erin", "Black", "Erin.black@comcast.net", 22, 91, 98, 82));
-        Roster.add(new Student("5", "Olavo", "H Dias", "odias1@my.wgu.edu", 33, 84, 83, 85));
+        /* Creates an array of Students represented as a String */
+        String [] students = {"1,John,Smith,John1989@gmail.com,20,88,79,59", 
+                              "2,Suzan,Erickson,Erickson_1990@gmailcom,19,91,72,85",
+                              "3,Jack,Napoli,The_lawyer99yahoo.com,19,85,84,87",
+                              "4,Erin,Black,Erin.black@comcast.net,22,91,98,82",
+                              "5,Olavo,H Dias,odias@my.wgu.edu,33,84,83,85"};
         
+        /* Add each element of the string to the Roster */
+        for (String student : students) {
+            
+            /* Create an Student using a Static Method of the Student Class */
+            Student newStudent = Student.createFromString(student);
+            
+            /* Make sure the system could create a student class instance */
+            if (newStudent != null)
+                Roster.add(newStudent);
+        }
+          
         /* Print All Students */
         Roster.print_all();
         
