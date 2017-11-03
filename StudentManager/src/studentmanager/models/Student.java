@@ -146,7 +146,7 @@ public class Student {
     public void print() 
     {
         /* Prints the Student Information to the Console */
-        System.out.println(String.format("%s\tFirst Name: %s\tLast Name: %s\tAge: %d\tGrades: {%s}.",
+        System.out.println(String.format("%s\tFirst Name: %s\tLast Name: %s\tAge: %d\t\tGrades: {%s}.",
                                          this.getStudentID(),
                                          this.getFirstName(),
                                          this.getLastName(),

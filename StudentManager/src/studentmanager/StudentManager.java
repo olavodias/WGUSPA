@@ -23,7 +23,7 @@ public class StudentManager {
         Roster.add(new Student("2", "Suzan", "Erickson", "Erickson_1990@gmailcom", 19, 91, 72, 85));
         Roster.add(new Student("3", "Jack", "Napoli", "The_lawyer99yahoo.com", 19, 85, 84, 87));
         Roster.add(new Student("4", "Erin", "Black", "Erin.black@comcast.net", 22, 91, 98, 82));
-        Roster.add(new Student("5", "Olavo", "Dias", "odias1@my.wgu.edu", 33, 84, 83, 85));
+        Roster.add(new Student("5", "Olavo", "H Dias", "odias1@my.wgu.edu", 33, 84, 83, 85));
         
         /* Print All Students */
         Roster.print_all();
@@ -48,7 +48,6 @@ public class StudentManager {
         
         /* Try again to remove the same student */
         Roster.remove("3");
-        
     }
     
 }
